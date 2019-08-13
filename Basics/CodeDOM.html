@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Curso Javascript</title>
+  </head>
+  <body>
+    <div class="app"></div>
+    <script>
+      var containerElement = document.querySelector(".app");
+      var buttonElement = document.createElement("button");
+      var textElement = document.createTextNode("Clique aqui!");
+      buttonElement.appendChild(textElement);
+      containerElement.appendChild(buttonElement);
+
+      buttonElement.onclick = function() {
+        var boxElement = document.createElement("div");
+        boxElement.style.width = 100;
+        boxElement.style.height = 100;
+        boxElement.style.backgroundColor = "#F00";
+        boxElement.style.marginTop = 20;
+        boxElement.onmouseover = function() {
+          var newColor = getRandomColor();
+          boxElement.style.backgroundColor = newColor;
+        };
+
+        containerElement.appendChild(boxElement);
+      };
+
+      function getRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+    </script>
+  </body>
+</html>
